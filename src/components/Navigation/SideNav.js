@@ -22,7 +22,11 @@ class SideNav extends React.Component {
     ));
     return (
       <div>
-        <ul className="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <ul
+          className="navbar-nav navbar-sidenav"
+          id="exampleAccordion"
+          style={{ overflow: "scroll" }}
+        >
           {this.props.user ? (
             <>
               <li
@@ -31,7 +35,12 @@ class SideNav extends React.Component {
                 data-placement="right"
               >
                 <Link className="nav-link heading" to="/createChannel">
-                  <span className="nav-link-text mr-2">Channels</span>
+                  <span
+                    className="nav-link-text mr-2"
+                    style={{ fontFamily: "Lilita One" }}
+                  >
+                    Channels
+                  </span>
                   <FontAwesomeIcon icon={faPlusCircle} />
                 </Link>
               </li>
@@ -44,7 +53,12 @@ class SideNav extends React.Component {
               data-placement="right"
             >
               <Link to="/login" className="nav-link">
-                <span className="nav-link-text mr-2">Login</span>
+                <span
+                  className="nav-link-text mr-2"
+                  style={{ fontFamily: "Lilita One" }}
+                >
+                  Login
+                </span>
                 <FontAwesomeIcon icon={faSignInAlt} />
               </Link>
             </li>

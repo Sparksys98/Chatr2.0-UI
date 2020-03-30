@@ -11,7 +11,8 @@ import Welcome from "./components/Welcome";
 import RegistrationForm from "./components/RegistrationForm";
 import SuperSecretPage from "./components/SuperSecretPage";
 import LoginForm from "./components/LoginForm";
-import CreateChannelForm from "./components/CreateChannelForm";
+import CreateChannelForm from "./components/CreateChannelForm"; //comment because it cause an error
+
 class App extends Component {
   componentDidMount() {
     main();
