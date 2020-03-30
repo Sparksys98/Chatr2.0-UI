@@ -1,12 +1,6 @@
-import {
-  GET_CHANNELS,
-  ADD_CHANNEL,
-  GET_MESSAGES
-} from "../actions/actionTypes";
+import { GET_CHANNELS, ADD_CHANNEL } from "../actions/actionTypes";
 const initialState = {
-  channels: [],
-  data: "", // <--- what is this for?
-  messages: []
+  channels: []
 };
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -17,17 +11,7 @@ const reducer = (state = initialState, { type, payload }) => {
       };
     case ADD_CHANNEL:
       return {
-        ...state,
-        data: payload // <--- wai?
-      };
-
-    /**
-     * Consider having a separate reducer just for messages
-     */
-    case GET_MESSAGES:
-      return {
-        ...state,
-        messages: payload
+        ...state
       };
     default:
       return state;

@@ -1,6 +1,6 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-
+import instance from "./instance";
 import { SET_CURRENT_USER, SET_ERRORS } from "./actionTypes";
 import { getChannels } from "./channels";
 
@@ -28,10 +28,7 @@ export const login = (userData, history) => {
       /**
        * Why are you not using the instance?
        */
-      const res = await axios.post(
-        "https://api-chatr.herokuapp.com/login/",
-        userData
-      );
+      const res = await instance.post("login/", userData);
       const user = res.data;
       dispatch(setCurrentUser(user.token));
       history.replace("/private");
@@ -47,10 +44,7 @@ export const login = (userData, history) => {
 export const signup = (userData, history) => {
   return async dispatch => {
     try {
-      const res = await axios.post(
-        "https://api-chatr.herokuapp.com/signup/",
-        userData
-      );
+      const res = await instance.post("login/", userData);
       const user = res.data;
       dispatch(setCurrentUser(user.token));
       history.replace("/private");

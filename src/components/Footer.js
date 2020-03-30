@@ -4,7 +4,7 @@ const Footer = () => (
   <footer className="sticky-footer bg-primary">
     <div className="container">
       <div className="text-center">
-        <small>Copyright © Sparksys 2020</small>
+        <small>Copyright © Sparksys & Ghada 2020</small>
       </div>
     </div>
   </footer>
