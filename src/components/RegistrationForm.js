@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actionCreators from "../redux/actions";
 class RegistationForm extends Component {
   state = {
     username: "",
@@ -13,58 +14,75 @@ class RegistationForm extends Component {
 
   submitHandler = e => {
     e.preventDefault();
-    alert("I don't work yet");
+    this.props.signup(this.state, this.props.history);
   };
 
   render() {
-    const type = this.props.match.url.substring(1);
+    if (this.props.user) return <Redirect to="/private" />;
+    const { username, password } = this.state;
     return (
-      <div className="card col-6 mx-auto p-0 mt-5">
-        <div className="card-body">
-          <h5 className="card-title mb-4">
-            {type === "login"
-              ? "Login to send messages"
-              : "Register an account"}
-          </h5>
-          <form onSubmit={this.submitHandler}>
-            <div className="form-group">
-              <input
-                className="form-control"
-                type="text"
-                placeholder="Username"
-                name="username"
-                onChange={this.changeHandler}
-              />
+      <div className="my-6">
+        <div className="container-fluid jumbotron bg-transparent my-5 text-center align-ceneter">
+          <div className=" col-6 mx-auto my-5">
+            <div className="card my-5">
+              <div className="card-body">
+                <form onSubmit={this.submitHandler}>
+                  <div className="form-group">
+                    <label htmlFor="username">Username</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="username"
+                      value={username}
+                      name="username"
+                      placeholder="Username"
+                      onChange={this.changeHandler}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="password"
+                      value={password}
+                      name="password"
+                      placeholder="Password"
+                      onChange={this.changeHandler}
+                    />
+                    <p style={{ color: "red" }}>
+                      {this.props.errors ? this.props.errors.username : ""}
+                    </p>
+                  </div>
+
+                  <button type="submit" className="btn btn-primary">
+                    Signup
+                  </button>
+                  <br />
+                  <Link to="/login" className="btn btn-link my-2 my-sm-0">
+                    Login With an Existing Account
+                  </Link>
+                </form>
+              </div>
             </div>
-            <div className="form-group">
-              <input
-                className="form-control"
-                type="password"
-                placeholder="Password"
-                name="password"
-                onChange={this.changeHandler}
-              />
-            </div>
-            <input
-              className="btn btn-primary"
-              type="submit"
-              value={type.replace(/^\w/, c => c.toUpperCase())}
-            />
-          </form>
-        </div>
-        <div className="card-footer">
-          <Link
-            to={type === "login" ? "/signup" : "/login"}
-            className="btn btn-small btn-link"
-          >
-            {type === "login"
-              ? "register an account"
-              : "login with an existing account"}
-          </Link>
+          </div>
         </div>
       </div>
     );
   }
 }
 
-export default RegistationForm;
+const mapStateToProps = state => {
+  return {
+    user: state.user.user,
+    errors: state.errors
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    signup: (userData, history) =>
+      dispatch(actionCreators.signup(userData, history))
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(RegistationForm);

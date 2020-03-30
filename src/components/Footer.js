@@ -1,10 +1,10 @@
 import React from "react";
 
 const Footer = () => (
-  <footer className="sticky-footer">
+  <footer className="sticky-footer bg-primary">
     <div className="container">
       <div className="text-center">
-        <small>Copyright © CODED Chatr 2019</small>
+        <small>Copyright © Sparksys 2020</small>
       </div>
     </div>
   </footer>
