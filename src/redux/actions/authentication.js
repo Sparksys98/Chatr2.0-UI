@@ -25,6 +25,9 @@ export const checkForExpiredToken = () => {
 export const login = (userData, history) => {
   return async dispatch => {
     try {
+      /**
+       * Why are you not using the instance?
+       */
       const res = await axios.post(
         "https://api-chatr.herokuapp.com/login/",
         userData
