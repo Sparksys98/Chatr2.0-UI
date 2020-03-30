@@ -1,6 +1,10 @@
 import { ADD_CHANNEL } from "./actionTypes";
 import axios from "axios";
 import { setErrors } from "./errors";
+
+/**
+ * Creating a channel should be part of the `channels.js` action file
+ */
 export const createChannel = userData => {
   return async dispatch => {
     try {

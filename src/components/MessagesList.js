@@ -1,4 +1,8 @@
 import React from "react";
+
+/**
+ * Don't commit incomplete code into master
+ */
 const MessagesList = ({ messages }) => (
   <li
     className="nav-item"

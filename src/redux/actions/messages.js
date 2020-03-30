@@ -29,6 +29,11 @@ export const getMessages = channel => {
     }
   };
 };
+
+/**
+ * Don't push "dead" code...especially not "stolen" dead code
+ */
+
 // export const fetchMessages = channel => async dispatch => {
 //   const timestamp = channel.messages.length
 //     ? channel.messages[channel.messages.length - 1].timestamp
