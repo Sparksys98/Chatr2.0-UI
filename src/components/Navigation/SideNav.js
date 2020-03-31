@@ -52,7 +52,7 @@ class SideNav extends React.Component {
               data-toggle="tooltip"
               data-placement="right"
             >
-              <Link to="/login" className="nav-link">
+              {/* <Link to="/login" className="nav-link">
                 <span
                   className="nav-link-text mr-2"
                   style={{ fontFamily: "Lilita One" }}
@@ -60,7 +60,7 @@ class SideNav extends React.Component {
                   Login
                 </span>
                 <FontAwesomeIcon icon={faSignInAlt} />
-              </Link>
+              </Link> */}
             </li>
           )}
         </ul>

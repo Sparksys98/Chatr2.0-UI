@@ -11,8 +11,8 @@ import Welcome from "./components/Welcome";
 import RegistrationForm from "./components/RegistrationForm";
 import SuperSecretPage from "./components/SuperSecretPage";
 import LoginForm from "./components/LoginForm";
-import CreateChannelForm from "./components/CreateChannelForm"; //comment because it cause an error
-
+import CreateChannelForm from "./components/CreateChannelForm";
+import ChannelPlatform from "./components/ChannelPlatform";
 class App extends Component {
   componentDidMount() {
     main();
@@ -28,6 +28,7 @@ class App extends Component {
           <Route path="/signup" component={RegistrationForm} />
           <Route path="/login" component={LoginForm} />
           <Route path="/private" component={SuperSecretPage} />
+          <Route path="/channel" />
           <Redirect to="/welcome" />
         </Switch>
         <Footer />
