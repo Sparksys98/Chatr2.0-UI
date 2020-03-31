@@ -12,6 +12,7 @@ import RegistrationForm from "./components/RegistrationForm";
 import SuperSecretPage from "./components/SuperSecretPage";
 import LoginForm from "./components/LoginForm";
 import Messages from "./components/Messages";
+import CreateChannelForm from "./components/CreateChannelForm";
 import ChannelPlatform from "./components/ChannelPlatform";
 class App extends Component {
   componentDidMount() {
