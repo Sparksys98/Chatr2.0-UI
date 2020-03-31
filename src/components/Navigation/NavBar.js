@@ -5,13 +5,18 @@ import { Link } from "react-router-dom";
 import SideNav from "./SideNav";
 import AuthButton from "./AuthButton";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+
 const NavBar = () => (
   <nav
     className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
     id="mainNav"
   >
-    <Link className="navbar-brand" to="/welcome">
-      Chatr2.0
+    {/* if (this.props.user) return <Redirect to="/channel" />; */}
+    <Link className="navbar-brand" to="/channel">
+      <FontAwesomeIcon icon={faHome} />
+      Chat Online
     </Link>
     <button
       className="navbar-toggler navbar-toggler-right"
