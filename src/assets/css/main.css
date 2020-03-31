@@ -2,7 +2,12 @@ html {
   position: relative;
   min-height: 100%;
 }
-
+.text {
+  color: black;
+  font-size: large;
+  font-style: oblique;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 body {
   overflow-x: hidden;
 }

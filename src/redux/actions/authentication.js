@@ -25,9 +25,6 @@ export const checkForExpiredToken = () => {
 export const login = (userData, history) => {
   return async dispatch => {
     try {
-      /**
-       * Why are you not using the instance?
-       */
       const res = await instance.post("login/", userData);
       const user = res.data;
       dispatch(setCurrentUser(user.token));
@@ -66,12 +63,12 @@ const setCurrentUser = token => {
     let user = null;
     if (token) {
       localStorage.setItem("token", token);
-      axios.defaults.headers.common.Authorization = `jwt ${token}`;
+      instance.defaults.headers.common.Authorization = `jwt ${token}`;
       user = jwt_decode(token);
       dispatch(getChannels());
     } else {
       localStorage.removeItem("token");
-      delete axios.defaults.headers.common.Authorization;
+      delete instance.defaults.headers.common.Authorization;
     }
     dispatch({
       type: SET_CURRENT_USER,

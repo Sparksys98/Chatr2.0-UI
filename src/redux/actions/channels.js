@@ -1,10 +1,11 @@
 import { ADD_CHANNEL, GET_CHANNELS } from "./actionTypes";
 import axios from "axios";
+import instance from "./instance";
 import { setErrors } from "./errors";
 export const getChannels = () => {
   return async dispatch => {
     try {
-      const res = await axios.get("https://api-chatr.herokuapp.com/channels/");
+      const res = await instance.get("channels/");
       const channels = res.data;
       console.log(channels);
       dispatch({
@@ -20,7 +21,7 @@ export const getChannels = () => {
 export const createChannel = userData => {
   return async dispatch => {
     try {
-      const res = await axios.post("channels/create/", userData);
+      const res = await instance.post("channels/create/", userData);
       const channels = res.data;
       dispatch({ type: ADD_CHANNEL, payload: channels });
     } catch (err) {
