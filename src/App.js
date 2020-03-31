@@ -12,6 +12,7 @@ import RegistrationForm from "./components/RegistrationForm";
 import SuperSecretPage from "./components/SuperSecretPage";
 import LoginForm from "./components/LoginForm";
 import CreateChannelForm from "./components/CreateChannelForm";
+import Messages from "./components/Messages";
 class App extends Component {
   componentDidMount() {
     main();
@@ -22,6 +23,7 @@ class App extends Component {
       <div className="content-wrapper">
         <NavBar />
         <Switch>
+          <Route path="/channels/:ID" component={Messages} />
           <Route path="/createChannel" component={CreateChannelForm} />
           <Route path="/welcome" component={Welcome} />
           <Route path="/signup" component={RegistrationForm} />
