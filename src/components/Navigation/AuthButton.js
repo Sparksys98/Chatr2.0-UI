@@ -12,12 +12,20 @@ import {
 
 const AuthButton = ({ user, logout }) => {
   let buttons = [
-    <li key="loginButton" className="nav-item">
+    <li
+      key="loginButton"
+      className="nav-item"
+      style={{ fontFamily: "Lilita One" }}
+    >
       <Link to="/login" className="nav-link">
         <FontAwesomeIcon icon={faSignInAlt} /> Login
       </Link>
     </li>,
-    <li key="signupButton" className="nav-item">
+    <li
+      key="signupButton"
+      className="nav-item"
+      style={{ fontFamily: "Lilita One" }}
+    >
       <Link to="/signup" className="nav-link">
         <FontAwesomeIcon icon={faUserPlus} /> Signup
       </Link>
@@ -27,11 +35,12 @@ const AuthButton = ({ user, logout }) => {
   if (user) {
     buttons = (
       <>
-        <span className="navbar-text">{user.username}</span>
         <li className="nav-item">
-          <span className="nav-link">
+          <span className="nav-link" style={{ fontFamily: "Lilita One" }}>
             <Link to="/" className="nav-link" onClick={logout}>
               <FontAwesomeIcon icon={faSignOutAlt} /> Logout
+              {"       "}
+              {user.username}
             </Link>
           </span>
         </li>

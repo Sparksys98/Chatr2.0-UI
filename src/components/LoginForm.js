@@ -18,11 +18,11 @@ class Login extends Component {
   };
 
   render() {
-    if (this.props.user) return <Redirect to="/private" />;
+    if (this.props.user) return <Redirect to="/channel" />;
     const { username, password } = this.state;
 
     return (
-      <div className="my-6">
+      <div className="my-6" style={{ fontFamily: "Lilita One" }}>
         <div className="container-fluid jumbotron bg-transparent my-5 text-center align-ceneter">
           <div className=" col-6 mx-auto my-5">
             <div className="card my-5">
