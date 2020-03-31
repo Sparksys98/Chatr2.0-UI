@@ -41,7 +41,7 @@ export const login = (userData, history) => {
 export const signup = (userData, history) => {
   return async dispatch => {
     try {
-      const res = await instance.post("login/", userData);
+      const res = await instance.post("signup/", userData);
       const user = res.data;
       dispatch(setCurrentUser(user.token));
       history.replace("/private");
