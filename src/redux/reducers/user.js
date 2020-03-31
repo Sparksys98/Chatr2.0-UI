@@ -1,8 +1,7 @@
 import { SET_CURRENT_USER, SET_ERRORS } from "../actions/actionTypes";
 
 const initialState = {
-  user: null,
-  errors: null
+  user: null
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -15,11 +14,6 @@ const reducer = (state = initialState, { type, payload }) => {
       };
     default:
       return state;
-    case SET_ERRORS:
-      return {
-        ...state,
-        error: payload
-      };
   }
 };
 
