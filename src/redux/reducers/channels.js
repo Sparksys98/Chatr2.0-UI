@@ -1,7 +1,6 @@
 import { GET_CHANNELS, ADD_CHANNEL } from "../actions/actionTypes";
 const initialState = {
-  channels: [],
-  data: ""
+  channels: []
 };
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -12,8 +11,7 @@ const reducer = (state = initialState, { type, payload }) => {
       };
     case ADD_CHANNEL:
       return {
-        ...state,
-        data: payload
+        ...state
       };
     default:
       return state;

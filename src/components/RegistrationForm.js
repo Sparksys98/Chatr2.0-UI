@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import * as actionCreators from "../redux/actions";
+import { signup } from "../redux/actions";
 class RegistationForm extends Component {
   state = {
     username: "",
@@ -51,7 +51,7 @@ class RegistationForm extends Component {
                       onChange={this.changeHandler}
                     />
                     <p style={{ color: "red" }}>
-                      {this.props.errors ? this.props.errors.username : ""}
+                      {this.props.errors ? this.props.errors.password : ""}
                     </p>
                   </div>
 
@@ -81,8 +81,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    signup: (userData, history) =>
-      dispatch(actionCreators.signup(userData, history))
+    signup: (userData, history) => dispatch(signup(userData, history))
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(RegistationForm);
