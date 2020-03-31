@@ -7,7 +7,6 @@ import { faHashtag } from "@fortawesome/free-solid-svg-icons";
 
 const ChannelNavLink = ({ channel }) => (
   <li
-    // style={{ overflow: "scroll" }}
     className="nav-item"
     data-toggle="tooltip"
     data-placement="right"

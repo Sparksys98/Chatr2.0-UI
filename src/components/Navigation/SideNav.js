@@ -51,17 +51,7 @@ class SideNav extends React.Component {
               className="nav-item"
               data-toggle="tooltip"
               data-placement="right"
-            >
-              {/* <Link to="/login" className="nav-link">
-                <span
-                  className="nav-link-text mr-2"
-                  style={{ fontFamily: "Lilita One" }}
-                >
-                  Login
-                </span>
-                <FontAwesomeIcon icon={faSignInAlt} />
-              </Link> */}
-            </li>
+            ></li>
           )}
         </ul>
         <ul className="navbar-nav sidenav-toggler">
