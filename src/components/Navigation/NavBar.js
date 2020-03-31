@@ -13,6 +13,7 @@ const NavBar = () => (
     className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
     id="mainNav"
   >
+    {/* Dead Code */}
     {/* if (this.props.user) return <Redirect to="/channel" />; */}
     <Link className="navbar-brand" to="/channel">
       <FontAwesomeIcon icon={faHome} />

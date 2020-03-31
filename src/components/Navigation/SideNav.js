@@ -52,6 +52,7 @@ class SideNav extends React.Component {
               data-toggle="tooltip"
               data-placement="right"
             >
+              {/* Dead code */}
               {/* <Link to="/login" className="nav-link">
                 <span
                   className="nav-link-text mr-2"

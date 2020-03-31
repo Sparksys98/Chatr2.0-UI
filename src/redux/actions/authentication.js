@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "axios"; // <-- "dead" import
 import jwt_decode from "jwt-decode";
 import instance from "./instance";
 import { SET_CURRENT_USER, SET_ERRORS } from "./actionTypes";
@@ -28,7 +28,7 @@ export const login = (userData, history) => {
       const res = await instance.post("login/", userData);
       const user = res.data;
       dispatch(setCurrentUser(user.token));
-      history.replace("/private");
+      history.replace("/private"); // <-- better place to redirect to?
     } catch (err) {
       dispatch({
         type: SET_ERRORS,
@@ -41,10 +41,10 @@ export const login = (userData, history) => {
 export const signup = (userData, history) => {
   return async dispatch => {
     try {
-      const res = await instance.post("login/", userData);
+      const res = await instance.post("login/", userData); // <-- did you know your "signup" is making a request to login?
       const user = res.data;
       dispatch(setCurrentUser(user.token));
-      history.replace("/private");
+      history.replace("/private"); // <-- better place to redirect to?
       dispatch({
         type: SET_ERRORS,
         payload: null
@@ -69,6 +69,11 @@ const setCurrentUser = token => {
     } else {
       localStorage.removeItem("token");
       delete instance.defaults.headers.common.Authorization;
+      /**
+       * You need to set the channels list back to empty here:
+       *
+       * dispatch({type: GET_CHANNELS, payload: []})
+       */
     }
     dispatch({
       type: SET_CURRENT_USER,
@@ -81,6 +86,7 @@ const setCurrentUser = token => {
   };
 };
 
-export const logout = () => {
-  return setCurrentUser();
-};
+/**
+ * ...check this out...
+ */
+export const logout = setCurrentUser;

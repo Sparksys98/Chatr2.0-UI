@@ -7,7 +7,7 @@ export const getChannels = () => {
     try {
       const res = await instance.get("channels/");
       const channels = res.data;
-      console.log(channels);
+      console.log(channels); // <-- don't leave console logs lying arounf
       dispatch({
         type: GET_CHANNELS,
         payload: channels
