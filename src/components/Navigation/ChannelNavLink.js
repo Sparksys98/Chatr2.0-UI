@@ -16,7 +16,7 @@ const ChannelNavLink = ({ channel }) => (
   >
     <NavLink
       className="nav-link"
-      to={`/channels/${channel.name}`}
+      to={`/channels/${channel.id}`}
       style={{ fontFamily: "Lilita One" }}
     >
       <FontAwesomeIcon icon={faHashtag} />
