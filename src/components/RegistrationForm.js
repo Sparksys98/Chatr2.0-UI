@@ -18,7 +18,7 @@ class RegistationForm extends Component {
   };
 
   render() {
-    if (this.props.user) return <Redirect to="/private" />;
+    if (this.props.user) return <Redirect to="/channel" />;
     const { username, password } = this.state;
     return (
       <div className="my-6" style={{ fontFamily: "Lilita One" }}>
