@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 
 const Welcome = () => (
   <header className="masthead d-flex">
-    <div className="container text-center my-auto z-1">
+    <div
+      className="container text-center my-auto z-1"
+      style={{ fontFamily: "Lilita One" }}
+    >
       <h1 className="mb-1">WELCOME TO CHATR</h1>
       <h3 className="mb-5">
         <em>You're gonna need to login to see the messages</em>

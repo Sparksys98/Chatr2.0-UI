@@ -7,12 +7,18 @@ import { faHashtag } from "@fortawesome/free-solid-svg-icons";
 
 const ChannelNavLink = ({ channel }) => (
   <li
+    // style={{ overflow: "scroll" }}
     className="nav-item"
     data-toggle="tooltip"
     data-placement="right"
+    style={{ fontFamily: "Lilita One" }}
     title={channel.name}
   >
-    <NavLink className="nav-link" to={`/channels/${channel.name}`}>
+    <NavLink
+      className="nav-link"
+      to={`/channels/${channel.name}`}
+      style={{ fontFamily: "Lilita One" }}
+    >
       <FontAwesomeIcon icon={faHashtag} />
       <span className="nav-link-text"> {channel.name}</span>
     </NavLink>
