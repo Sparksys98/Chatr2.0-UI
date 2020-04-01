@@ -52,6 +52,7 @@ class CreateChannel extends Component {
                       placeholder="Image URL"
                       onChange={this.handleChange}
                     />
+                    {/* I don't think the backend can throw non-field errors for this form */}
                     <p style={{ color: "red" }}>
                       {" "}
                       {this.props.errors

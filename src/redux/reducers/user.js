@@ -1,4 +1,11 @@
-import { SET_CURRENT_USER, SET_ERRORS } from "../actions/actionTypes";
+import { SET_CURRENT_USER } from "../actions/actionTypes";
+
+/**
+ * You can simplify this state (and the way it's being used in all yout components)
+ * by having the whole state be the user object:
+ *
+ * const initialState = null;
+ */
 
 const initialState = {
   user: null
@@ -10,7 +17,7 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         user: payload,
-        errors: null
+        errors: null // <-- ?
       };
     default:
       return state;
