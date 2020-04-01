@@ -1,7 +1,6 @@
-import axios from "axios"; // <-- "dead" import
 import jwt_decode from "jwt-decode";
 import instance from "./instance";
-import { SET_CURRENT_USER, SET_ERRORS } from "./actionTypes";
+import { SET_CURRENT_USER, SET_ERRORS, GET_CHANNELS } from "./actionTypes";
 import { getChannels } from "./channels";
 
 export const checkForExpiredToken = () => {
@@ -28,12 +27,13 @@ export const login = (userData, history) => {
       const res = await instance.post("login/", userData);
       const user = res.data;
       dispatch(setCurrentUser(user.token));
-      history.replace("/private"); // <-- better place to redirect to?
+      history.replace("/private");
     } catch (err) {
       dispatch({
         type: SET_ERRORS,
         payload: err.response.data
       });
+      console.error(err);
     }
   };
 };
@@ -41,10 +41,10 @@ export const login = (userData, history) => {
 export const signup = (userData, history) => {
   return async dispatch => {
     try {
-      const res = await instance.post("login/", userData); // <-- did you know your "signup" is making a request to login?
+      const res = await instance.post("signup/", userData);
       const user = res.data;
       dispatch(setCurrentUser(user.token));
-      history.replace("/private"); // <-- better place to redirect to?
+      history.replace("/private");
       dispatch({
         type: SET_ERRORS,
         payload: null
@@ -69,11 +69,7 @@ const setCurrentUser = token => {
     } else {
       localStorage.removeItem("token");
       delete instance.defaults.headers.common.Authorization;
-      /**
-       * You need to set the channels list back to empty here:
-       *
-       * dispatch({type: GET_CHANNELS, payload: []})
-       */
+      dispatch({ type: GET_CHANNELS, payload: [] });
     }
     dispatch({
       type: SET_CURRENT_USER,
@@ -85,8 +81,4 @@ const setCurrentUser = token => {
     });
   };
 };
-
-/**
- * ...check this out...
- */
 export const logout = setCurrentUser;

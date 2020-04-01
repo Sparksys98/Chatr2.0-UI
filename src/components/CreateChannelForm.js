@@ -6,7 +6,6 @@ import * as actions from "../redux/actions";
 class CreateChannel extends Component {
   state = {
     name: "",
-    id: "",
     image_url: ""
   };
 
@@ -52,13 +51,6 @@ class CreateChannel extends Component {
                       placeholder="Image URL"
                       onChange={this.handleChange}
                     />
-                    {/* I don't think the backend can throw non-field errors for this form */}
-                    <p style={{ color: "red" }}>
-                      {" "}
-                      {this.props.errors
-                        ? this.props.errors.non_field_errors
-                        : ""}
-                    </p>
                   </div>
 
                   <button type="submit" className="btn btn-primary">

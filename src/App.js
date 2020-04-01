@@ -25,7 +25,7 @@ class App extends Component {
         <NavBar />
         <Switch>
           {/* NO CHEATING - it's better UX to have the channel name in url than the ID */}
-          <Route path="/channels/:ID" component={Messages} />
+          <Route path="/channels/:ID?" component={Messages} />
 
           <Route path="/createChannel" component={CreateChannelForm} />
           <Route path="/welcome" component={Welcome} />
