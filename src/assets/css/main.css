@@ -12,14 +12,6 @@ body {
   overflow-x: hidden;
 }
 
-body.sticky-footer {
-  margin-bottom: 56px;
-}
-
-body.sticky-footer .content-wrapper {
-  min-height: calc(100vh - 56px - 56px);
-}
-
 body.fixed-nav {
   padding-top: 56px;
 }
@@ -530,11 +522,11 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   .navbar-collapse
   .navbar-sidenav
   .nav-link-collapse:after {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(157, 16, 167, 0.54);
 }
 
 #mainNav.navbar-light .navbar-collapse .navbar-sidenav > .nav-item > .nav-link {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(157, 16, 167, 0.54);
 }
 
 #mainNav.navbar-light
@@ -598,7 +590,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   .navbar-nav
   > .nav-item.dropdown
   > .nav-link:after {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(101, 29, 107, 0.575);
 }
 
 @media (min-width: 992px) {
@@ -673,18 +665,6 @@ footer.sticky-footer {
   height: 56px;
   background-color: rgba(157, 16, 167, 0.84);
   line-height: 55px;
-}
-
-@media (min-width: 992px) {
-  footer.sticky-footer {
-    width: calc(100% - 250px);
-  }
-}
-
-@media (min-width: 992px) {
-  body.sidenav-toggled footer.sticky-footer {
-    width: calc(100% - 55px);
-  }
 }
 
 .SuperSecretPage {
