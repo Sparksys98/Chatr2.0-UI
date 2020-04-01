@@ -20,13 +20,10 @@ class SideNav extends React.Component {
     const channelLinks = this.props.channels.map(channel => (
       <ChannelNavLink key={channel.name} channel={channel} />
     ));
+
     return (
       <div>
-        <ul
-          className="navbar-nav navbar-sidenav"
-          id="exampleAccordion"
-          style={{ overflow: "scroll" }}
-        >
+        <ul className="navbar-nav navbar-sidenav scroll" id="exampleAccordion">
           {this.props.user ? (
             <>
               <li
@@ -51,18 +48,7 @@ class SideNav extends React.Component {
               className="nav-item"
               data-toggle="tooltip"
               data-placement="right"
-            >
-              {/* Dead code */}
-              {/* <Link to="/login" className="nav-link">
-                <span
-                  className="nav-link-text mr-2"
-                  style={{ fontFamily: "Lilita One" }}
-                >
-                  Login
-                </span>
-                <FontAwesomeIcon icon={faSignInAlt} />
-              </Link> */}
-            </li>
+            ></li>
           )}
         </ul>
         <ul className="navbar-nav sidenav-toggler">

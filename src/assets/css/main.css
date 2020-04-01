@@ -8,6 +8,10 @@ html {
   font-style: oblique;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+.scroll {
+  overflow-y: scroll;
+  overflow: hidden;
+}
 body {
   overflow-x: hidden;
 }

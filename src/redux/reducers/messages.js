@@ -1,11 +1,4 @@
-import { GET_MESSAGES } from "../actions/actionTypes";
-
-/**
- * You can simplify this state (and the way it's being used in all yout components)
- * by having the whole state be the array:
- *
- * const initialState = [];
- */
+import { GET_MESSAGES, SEND_MESSAGES } from "../actions/actionTypes";
 
 const initialState = {
   currentChannelMessages: []
@@ -17,6 +10,11 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         currentChannelMessages: payload
+      };
+    case SEND_MESSAGES:
+      return {
+        ...state,
+        messages: [...state.currentChannelMessages, payload]
       };
     default:
       return state;
