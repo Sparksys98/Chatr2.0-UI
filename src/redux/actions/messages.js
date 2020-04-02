@@ -15,6 +15,7 @@ export const getMessages = ID => {
   };
 };
 
+// change userData to message or messageObject
 export const sendMessages = (ID, userData) => {
   return async dispatch => {
     try {
