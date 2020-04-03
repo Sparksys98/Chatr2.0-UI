@@ -47,10 +47,13 @@ class Messages extends Component {
     const owner = channel ? channel.owner : "";
     console.log(owner);
     const messages = this.props.messages.map(message => (
-      <div className="card bg-dark" key={message.id}>
-        <div className="card-body mb-0 bg-primary">
-          {message.length !== 0 ? (
-            <ul className="list-group list-group-flush">
+      <div className="border" key={message.id}>
+        {message.length !== 0 ? (
+          <div className="speech left">
+            <ul
+              className="list-group list-group-flush"
+              style={{ listStyleType: "none" }}
+            >
               <li className="text">
                 {/* this */}
                 {message.message.includes(this.checkURL) ? (
@@ -60,7 +63,10 @@ class Messages extends Component {
                     alt="image not found"
                   ></img>
                 ) : (
-                  <ul className="list-group list-group-flush">
+                  <ul
+                    className="list-group list-group-flush"
+                    style={{ listStyleType: "none" }}
+                  >
                     <li className="text">
                       {message.username}: {message.message}
                     </li>
@@ -68,12 +74,12 @@ class Messages extends Component {
                 )}
               </li>
             </ul>
-          ) : (
-            <div className="card">
-              <h2>No Messages...</h2>
-            </div>
-          )}
-        </div>
+          </div>
+        ) : (
+          <div className="border">
+            <h2>No Messages...</h2>
+          </div>
+        )}
       </div>
     ));
     const { message } = this.state;
