@@ -7,7 +7,6 @@ import {
   faAngleLeft,
   faAngleRight,
   faPlusCircle,
-  faSearch
 } from "@fortawesome/free-solid-svg-icons";
 
 // Components
@@ -16,16 +15,16 @@ import ChannelNavLink from "./ChannelNavLink";
 
 class SideNav extends React.Component {
   state = { collapsed: false, query: "" };
-  setQuery = query => this.setState({ query });
+  setQuery = (query) => this.setState({ query });
   filterChannels = () => {
     const query = this.state.query.toLowerCase();
-    return this.props.channels.filter(channel =>
+    return this.props.channels.filter((channel) =>
       channel.name.toLowerCase().includes(query)
     );
   };
 
   render() {
-    const channelLinks = this.filterChannels().map(channel => (
+    const channelLinks = this.filterChannels().map((channel) => (
       <ChannelNavLink key={channel.name} channel={channel} />
     ));
 
@@ -71,8 +70,8 @@ class SideNav extends React.Component {
               className="nav-link text-center"
               id="sidenavToggler"
               onClick={() =>
-                this.setState(prevState => ({
-                  collapsed: !prevState.collapsed
+                this.setState((prevState) => ({
+                  collapsed: !prevState.collapsed,
                 }))
               }
             >
@@ -87,9 +86,9 @@ class SideNav extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.user.user,
-  channels: state.channels.channels
+  channels: state.channels.channels,
 });
 
 export default connect(mapStateToProps)(SideNav);
