@@ -49,21 +49,21 @@ class Messages extends Component {
 
     // put this JSX into a separate Message component.
     const messages = this.props.messages.map(message => (
-      <div key={message.id}>
-        <div className="speech ">
+      <div key={message.id} id="container">
+        <div id="chatWindow">
           <ul
             className="list-group list-group-flush"
             style={{ listStyleType: "none" }}
           >
             {this.props.user.username === message.username ? (
-              <li className="text ">
-                <div className=" right">
+              <li className="text">
+                <div className="chat-bubble-librarian">
                   {message.username}: {message.message}
                 </div>
               </li>
             ) : (
-              <li className="text ">
-                <div className=" left">
+              <li className="text">
+                <div className="chat-bubble-user">
                   {message.username}: {message.message}
                 </div>
               </li>
@@ -88,7 +88,7 @@ class Messages extends Component {
     return (
       <form onSubmit={this.messageSubmit}>
         <div>
-          <h2>Owner is: {owner}</h2>
+          <h2>{owner}</h2>
         </div>
         <img
           src={Image}
