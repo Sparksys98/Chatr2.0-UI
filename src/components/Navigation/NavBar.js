@@ -10,7 +10,7 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => (
   <nav
-    className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+    className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top"
     id="mainNav"
   >
     <Link className="navbar-brand" to="/channel">

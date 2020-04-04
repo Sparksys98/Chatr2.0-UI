@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 // FontAwesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHashtag } from "@fortawesome/free-solid-svg-icons";
+import { faHeadset } from "@fortawesome/free-solid-svg-icons";
 
 const ChannelNavLink = ({ channel }) => (
   <li
@@ -18,7 +18,7 @@ const ChannelNavLink = ({ channel }) => (
       to={`/channels/${channel.id}`}
       style={{ fontFamily: "Lilita One" }}
     >
-      <FontAwesomeIcon icon={faHashtag} />
+      <FontAwesomeIcon icon={faHeadset} />
       <span className="nav-link-text"> {channel.name}</span>
     </NavLink>
   </li>

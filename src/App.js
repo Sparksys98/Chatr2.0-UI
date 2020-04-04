@@ -13,7 +13,18 @@ import SuperSecretPage from "./components/SuperSecretPage";
 import LoginForm from "./components/LoginForm";
 import Messages from "./components/Messages";
 import CreateChannelForm from "./components/CreateChannelForm";
-import ChannelPlatform from "./components/ChannelPlatform";
+import Particles from "react-particles-js";
+const particlesOptions = {
+  particles: {
+    number: {
+      value: 80,
+      density: {
+        enable: true,
+        value_area: 500
+      }
+    }
+  }
+};
 class App extends Component {
   componentDidMount() {
     main();
@@ -22,9 +33,9 @@ class App extends Component {
   render() {
     return (
       <div className="content-wrapper">
+        <Particles className="particles" params={particlesOptions} />
         <NavBar />
         <Switch>
-          {/* NO CHEATING - it's better UX to have the channel name in url than the ID */}
           <Route path="/channels/:ID?" component={Messages} />
 
           <Route path="/createChannel" component={CreateChannelForm} />
@@ -32,11 +43,7 @@ class App extends Component {
           <Route path="/signup" component={RegistrationForm} />
           <Route path="/login" component={LoginForm} />
 
-          {/* I don't think you need the `private` route anymore - there are better places to redirect to */}
           <Route path="/private" component={SuperSecretPage} />
-
-          {/* what is this route? */}
-          <Route path="/channel" />
 
           <Redirect to="/welcome" />
         </Switch>
