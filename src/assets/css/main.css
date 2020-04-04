@@ -732,11 +732,3 @@ footer.sticky-footer {
 .borders {
   border: 0;
 }
-.area {
-  height: 470px;
-  overflow-y: auto;
-}
-
-.rounded {
-  padding-bottom: 10px;
-}
