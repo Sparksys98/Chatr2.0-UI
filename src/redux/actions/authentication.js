@@ -1,7 +1,6 @@
-import axios from "axios";
 import jwt_decode from "jwt-decode";
 import instance from "./instance";
-import { SET_CURRENT_USER, SET_ERRORS } from "./actionTypes";
+import { SET_CURRENT_USER, SET_ERRORS, GET_CHANNELS } from "./actionTypes";
 import { getChannels } from "./channels";
 
 export const checkForExpiredToken = () => {
@@ -34,6 +33,7 @@ export const login = (userData, history) => {
         type: SET_ERRORS,
         payload: err.response.data
       });
+      console.error(err);
     }
   };
 };
@@ -69,6 +69,7 @@ const setCurrentUser = token => {
     } else {
       localStorage.removeItem("token");
       delete instance.defaults.headers.common.Authorization;
+      dispatch({ type: GET_CHANNELS, payload: [] });
     }
     dispatch({
       type: SET_CURRENT_USER,
@@ -80,7 +81,4 @@ const setCurrentUser = token => {
     });
   };
 };
-
-export const logout = () => {
-  return setCurrentUser();
-};
+export const logout = setCurrentUser;

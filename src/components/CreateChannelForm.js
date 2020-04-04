@@ -6,7 +6,6 @@ import * as actions from "../redux/actions";
 class CreateChannel extends Component {
   state = {
     name: "",
-    id: "",
     image_url: ""
   };
 
@@ -52,12 +51,6 @@ class CreateChannel extends Component {
                       placeholder="Image URL"
                       onChange={this.handleChange}
                     />
-                    <p style={{ color: "red" }}>
-                      {" "}
-                      {this.props.errors
-                        ? this.props.errors.non_field_errors
-                        : ""}
-                    </p>
                   </div>
 
                   <button type="submit" className="btn btn-primary">
@@ -77,7 +70,6 @@ class CreateChannel extends Component {
 const mapStateToProps = state => {
   return {
     user: state.user.user,
-    errors: state.errors
   };
 };
 

@@ -20,13 +20,10 @@ class SideNav extends React.Component {
     const channelLinks = this.props.channels.map(channel => (
       <ChannelNavLink key={channel.name} channel={channel} />
     ));
+
     return (
       <div>
-        <ul
-          className="navbar-nav navbar-sidenav"
-          id="exampleAccordion"
-          style={{ overflow: "scroll" }}
-        >
+        <ul className="navbar-nav navbar-sidenav scroll" id="exampleAccordion">
           {this.props.user ? (
             <>
               <li

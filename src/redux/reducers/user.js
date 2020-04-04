@@ -10,7 +10,7 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         user: payload,
-        errors: null
+        errors: null // <-- ?
       };
     default:
       return state;

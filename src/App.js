@@ -24,13 +24,20 @@ class App extends Component {
       <div className="content-wrapper">
         <NavBar />
         <Switch>
-          <Route path="/channels/:ID" component={Messages} />
+          {/* NO CHEATING - it's better UX to have the channel name in url than the ID */}
+          <Route path="/channels/:ID?" component={Messages} />
+
           <Route path="/createChannel" component={CreateChannelForm} />
           <Route path="/welcome" component={Welcome} />
           <Route path="/signup" component={RegistrationForm} />
           <Route path="/login" component={LoginForm} />
+
+          {/* I don't think you need the `private` route anymore - there are better places to redirect to */}
           <Route path="/private" component={SuperSecretPage} />
+
+          {/* what is this route? */}
           <Route path="/channel" />
+
           <Redirect to="/welcome" />
         </Switch>
         <Footer />

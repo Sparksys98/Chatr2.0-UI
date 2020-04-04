@@ -1,5 +1,4 @@
 import { ADD_CHANNEL, GET_CHANNELS } from "./actionTypes";
-import axios from "axios";
 import instance from "./instance";
 import { setErrors } from "./errors";
 export const getChannels = () => {
@@ -7,7 +6,6 @@ export const getChannels = () => {
     try {
       const res = await instance.get("channels/");
       const channels = res.data;
-      console.log(channels);
       dispatch({
         type: GET_CHANNELS,
         payload: channels
