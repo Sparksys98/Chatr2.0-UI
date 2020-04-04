@@ -7,6 +7,7 @@ html {
   font-size: large;
   font-style: oblique;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  flex-direction: column-reverse;
 }
 .scroll {
   overflow-y: scroll;
@@ -668,11 +669,19 @@ footer.sticky-footer {
   line-height: 55px;
 }
 
+
 @media (min-width: 992px) {
   footer.sticky-footer {
     width: calc(100%);
   }
 }
+
+
+
+
+
+
+
 
 @media (min-width: 992px) {
   body.sidenav-toggled footer.sticky-footer {
@@ -698,12 +707,14 @@ footer.sticky-footer {
   position: relative;
   font-family: arial;
   font-size: 1.1em;
+  overflow-wrap: break-word;
   background: rgba(52, 58, 64, 0.5);
   color: #fff;
   border-radius: 15px;
   padding: 20px;
   max-width: 400px;
   border-style: solid;
+  flex-direction: column-reverse;
 }
 .right:after {
   content: "";
@@ -715,6 +726,7 @@ footer.sticky-footer {
   top: 50%;
   margin-top: -20px;
   border-style: solid;
+  justify-content: flex-end !important;
 }
 .left:after {
   content: "";
@@ -725,10 +737,35 @@ footer.sticky-footer {
   left: -20px;
   top: 50%;
   margin-top: -20px;
+  justify-content: flex-start !important;
 }
 .border {
   padding: 0.5rem;
+
+  
+  
+  
+ 
+}
+.borders {
+  border: 0;
+
 }
 .borders {
   border: 0;
 }
+.area {
+  height: 470px;
+  overflow-y: auto;
+}
+
+.rounded {
+  padding-bottom: 10px;
+}
+
+/* .right:after {
+  justify-content: flex-end !important;
+}
+.left:after {
+  justify-content: flex-start !important;
+} */

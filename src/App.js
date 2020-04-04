@@ -35,6 +35,7 @@ class App extends Component {
       <div className="content-wrapper">
         <Particles className="particles" params={particlesOptions} />
         <NavBar />
+
         <Switch>
           <Route path="/channels/:ID?" component={Messages} />
 
@@ -47,6 +48,7 @@ class App extends Component {
 
           <Redirect to="/welcome" />
         </Switch>
+
         <Footer />
       </div>
     );

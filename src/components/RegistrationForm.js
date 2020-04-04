@@ -18,7 +18,7 @@ class RegistationForm extends Component {
   };
 
   render() {
-    if (this.props.user) return <Redirect to="/channel" />; // <-- ?
+    if (this.props.user) return <Redirect to="/private" />;
     const { username, password } = this.state;
     return (
       <div className="my-6" style={{ fontFamily: "Lilita One" }}>
@@ -55,11 +55,15 @@ class RegistationForm extends Component {
                     </p>
                   </div>
 
-                  <button type="submit" className="btn btn-primary">
+                  <button type="submit" className="btn btn-secondary">
                     Signup
                   </button>
                   <br />
-                  <Link to="/login" className="btn btn-link my-2 my-sm-0">
+                  <Link
+                    to="/login"
+                    className="btn btn-link  my-2 my-sm-0"
+                    style={{ color: "gray" }}
+                  >
                     Login With an Existing Account
                   </Link>
                 </form>

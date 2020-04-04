@@ -13,7 +13,8 @@ const NavBar = () => (
     className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top"
     id="mainNav"
   >
-    <Link className="navbar-brand" to="/channel">
+    <Link className="navbar-brand">
+      {/* to="/channel" */}
       <FontAwesomeIcon icon={faHome} />
       Chat Online
     </Link>

@@ -18,7 +18,7 @@ class Login extends Component {
   };
 
   render() {
-    if (this.props.user) return <Redirect to="/channel" />;
+    if (this.props.user) return <Redirect to="/private" />;
     const { username, password } = this.state;
 
     return (
@@ -59,11 +59,15 @@ class Login extends Component {
                     </p>
                   </div>
 
-                  <button type="submit" className="btn btn-primary">
+                  <button type="submit" className="btn btn-secondary">
                     Login
                   </button>
                   <br />
-                  <Link to="/signup" className="btn btn-link my-2 my-sm-0">
+                  <Link
+                    to="/signup"
+                    className="btn btn-link my-2 my-sm-0"
+                    style={{ color: "gray" }}
+                  >
                     Signup for an account
                   </Link>
                 </form>
