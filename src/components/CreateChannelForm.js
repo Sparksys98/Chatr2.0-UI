@@ -70,7 +70,6 @@ class CreateChannel extends Component {
 const mapStateToProps = state => {
   return {
     user: state.user.user,
-    errors: state.errors // not being used
   };
 };
 
