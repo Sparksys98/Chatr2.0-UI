@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import InputEmoji from "react-input-emoji";
 class Messages extends Component {
   state = {
-    message: ""
+    message: "",
   };
   setLiveMessagesInterval() {
     this.props.getMessages(this.props.match.params.ID);
@@ -12,14 +12,14 @@ class Messages extends Component {
       this.props.getMessages(this.props.match.params.ID);
     }, 3500);
   }
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
-  messageSubmit = event => {
+  messageSubmit = (event) => {
     event.preventDefault();
     this.props.sendMessages(this.props.match.params.ID, this.state);
     this.setState({
-      message: ""
+      message: "",
     });
   };
 
@@ -41,29 +41,29 @@ class Messages extends Component {
 
   render() {
     const channel = this.props.channels.find(
-      channel => channel.id.toString() === this.props.match.params.ID
+      (channel) => channel.id.toString() === this.props.match.params.ID
     );
     // Ideally, you can have a page that isn't a channel, and redirect to it
     // if the channel isn't found.
     const owner = channel ? channel.owner : "";
 
     // put this JSX into a separate Message component.
-    const messages = this.props.messages.map(message => (
-      <div key={message.id}>
+    const messages = this.props.messages.map((message) => (
+      <div className="border" key={message.id}>
         <div className="speech ">
           <ul
             className="list-group list-group-flush"
             style={{ listStyleType: "none" }}
           >
             {this.props.user.username === message.username ? (
-              <li className="text ">
-                <div className=" right">
+              <li className="text">
+                <div className="right">
                   {message.username}: {message.message}
                 </div>
               </li>
             ) : (
-              <li className="text ">
-                <div className=" left">
+              <li className="text">
+                <div className="left">
                   {message.username}: {message.message}
                 </div>
               </li>
@@ -78,7 +78,7 @@ class Messages extends Component {
     // channel when a ChannelNavLink is clicked.
     // Then you wont' need to do this .find() here.
     const channelImage = this.props.channels.find(
-      channel => channel.id.toString() === this.props.match.params.ID
+      (channel) => channel.id.toString() === this.props.match.params.ID
     );
 
     const Image =
@@ -126,18 +126,18 @@ class Messages extends Component {
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     user: state.user.user,
     channels: state.channels.channels,
-    messages: state.messages.currentChannelMessages
+    messages: state.messages.currentChannelMessages,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    getMessages: ID => dispatch(getMessages(ID)),
-    sendMessages: (ID, Message) => dispatch(sendMessages(ID, Message))
+    getMessages: (ID) => dispatch(getMessages(ID)),
+    sendMessages: (ID, Message) => dispatch(sendMessages(ID, Message)),
   };
 };
 
