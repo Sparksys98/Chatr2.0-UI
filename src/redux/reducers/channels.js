@@ -15,7 +15,8 @@ const reducer = (state = initialState, { type, payload }) => {
       // this isn't doing anything. either don't dispatch it and remove it,
       // or make it add the payload to the list of channels
       return {
-        ...state
+        ...state,
+        channels: [payload, ...state.channels]
       };
     default:
       return state;
