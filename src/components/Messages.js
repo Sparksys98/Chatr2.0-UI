@@ -44,8 +44,14 @@ class Messages extends Component {
     const channel = this.props.channels.find(
       channel => channel.id.toString() === this.props.match.params.ID
     );
+    // Ideally, you can have a page that isn't a channel, and redirect to it
+    // if the channel isn't found.
     const owner = channel ? channel.owner : "";
-    console.log(owner);
+
+    // put this JSX into a separate Message component.
+    /*
+     * The "No Messages" message should appear if there are no messages, not if one of the messages is empty.
+     */
     const messages = this.props.messages.map(message => (
       <div className="card bg-dark" key={message.id}>
         <div className="card-body mb-0 bg-primary">
@@ -78,6 +84,9 @@ class Messages extends Component {
     ));
     const { message } = this.state;
 
+    // you could alternatively have a currentChannel in the reducer state that sets the current
+    // channel when a ChannelNavLink is clicked.
+    // Then you wont' need to do this .find() here.
     const channelImage = this.props.channels.find(
       channel => channel.id.toString() === this.props.match.params.ID
     );
@@ -101,6 +110,7 @@ class Messages extends Component {
             className="form-control"
             aria-label="Message"
             aria-describedby="inputGroup-sizing-default"
+            {/* messages is a list of messages, it doesn't have an id, also you don't need an id for the input tag */}
             id={messages.id}
             value={message}
             name="message"
@@ -110,6 +120,7 @@ class Messages extends Component {
           {/* this */}
           <button
             className="btn btn-outline-secondary"
+            {/* I think if you make it type="submit" you won't need the onClick, since it'll trigger onSubmit for the form */}
             type="button"
             onClick={this.messageSubmit}
           >
@@ -129,7 +140,6 @@ class Messages extends Component {
 }
 const mapStateToProps = state => {
   return {
-    user: state.user.user,
     channels: state.channels.channels,
     messages: state.messages.currentChannelMessages
   };
