@@ -668,19 +668,11 @@ footer.sticky-footer {
   line-height: 55px;
 }
 
-
 @media (min-width: 992px) {
   footer.sticky-footer {
     width: calc(100%);
   }
 }
-
-
-
-
-
-
-
 
 @media (min-width: 992px) {
   body.sidenav-toggled footer.sticky-footer {
@@ -708,7 +700,7 @@ footer.sticky-footer {
   font-size: 1.1em;
   background: rgba(52, 58, 64, 0.5);
   color: #fff;
-  border-radius: 10px;
+  border-radius: 15px;
   padding: 20px;
   max-width: 400px;
   border-style: solid;
@@ -736,5 +728,7 @@ footer.sticky-footer {
 }
 .border {
   padding: 0.5rem;
-  border-style: dotted;
+}
+.borders {
+  border: 0;
 }

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import InputEmoji from "react-input-emoji";
 class Messages extends Component {
   state = {
-    message: ""
+    message: "",
   };
   setLiveMessagesInterval() {
     this.props.getMessages(this.props.match.params.ID);
@@ -12,14 +12,14 @@ class Messages extends Component {
       this.props.getMessages(this.props.match.params.ID);
     }, 3500);
   }
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
-  messageSubmit = event => {
+  messageSubmit = (event) => {
     event.preventDefault();
     this.props.sendMessages(this.props.match.params.ID, this.state);
     this.setState({
-      message: ""
+      message: "",
     });
   };
 
@@ -35,57 +35,37 @@ class Messages extends Component {
   componentWillUnmount() {
     clearInterval(this.interval);
   }
-  //Aziz, I know there are so many code issues in here and bad stuff, just ignore them for now, I will fix them tmw :D
   checkURL(url) {
     return url.match(/\.(jpeg|jpg|gif|png)$/) != null;
   }
 
   render() {
     const channel = this.props.channels.find(
-      channel => channel.id.toString() === this.props.match.params.ID
+      (channel) => channel.id.toString() === this.props.match.params.ID
     );
     // Ideally, you can have a page that isn't a channel, and redirect to it
     // if the channel isn't found.
     const owner = channel ? channel.owner : "";
 
     // put this JSX into a separate Message component.
-    /*
-     * The "No Messages" message should appear if there are no messages, not if one of the messages is empty.
-     */
-    const messages = this.props.messages.map(message => (
+    const messages = this.props.messages.map((message) => (
       <div className="border" key={message.id}>
-        {message.length !== 0 ? (
-          <div className="speech left">
-            <ul
-              className="list-group list-group-flush"
-              style={{ listStyleType: "none" }}
-            >
-              <li className="text">
-                {/* this */}
-                {message.message.includes(this.checkURL) ? (
-                  <img
-                    src={message.message}
-                    className="rounded mx-auto d-block"
-                    alt="image not found"
-                  ></img>
-                ) : (
-                  <ul
-                    className="list-group list-group-flush"
-                    style={{ listStyleType: "none" }}
-                  >
-                    <li className="text">
-                      {message.username}: {message.message}
-                    </li>
-                  </ul>
-                )}
+        <div className="speech ">
+          <ul
+            className="list-group list-group-flush"
+            style={{ listStyleType: "none" }}
+          >
+            {this.props.user.username === message.username ? (
+              <li className="text right">
+                {message.username}: {message.message}
               </li>
-            </ul>
-          </div>
-        ) : (
-          <div className="border">
-            <h2>No Messages...</h2>
-          </div>
-        )}
+            ) : (
+              <li className="text left">
+                {message.username}: {message.message}
+              </li>
+            )}
+          </ul>
+        </div>
       </div>
     ));
     const { message } = this.state;
@@ -94,12 +74,13 @@ class Messages extends Component {
     // channel when a ChannelNavLink is clicked.
     // Then you wont' need to do this .find() here.
     const channelImage = this.props.channels.find(
-      channel => channel.id.toString() === this.props.match.params.ID
+      (channel) => channel.id.toString() === this.props.match.params.ID
     );
 
-    const Image = channelImage
-      ? channelImage.image_url
-      : "https://image.spreadshirtmedia.com/image-server/v1/compositions/T347A2PA2978PT17X144Y34D1016483822FS2321/views/1,width=650,height=650,appearanceId=2,backgroundColor=ffffff.jpg";
+    const Image =
+      channelImage && channelImage.image_url
+        ? channelImage.image_url
+        : "https://image.spreadshirtmedia.com/image-server/v1/compositions/T347A2PA2978PT17X144Y34D1016483822FS2321/views/1,width=650,height=650,appearanceId=2,backgroundColor=ffffff.jpg";
     return (
       <form onSubmit={this.messageSubmit}>
         <div>
@@ -116,20 +97,13 @@ class Messages extends Component {
             className="form-control"
             aria-label="Message"
             aria-describedby="inputGroup-sizing-default"
-            {/* messages is a list of messages, it doesn't have an id, also you don't need an id for the input tag */}
-            id={messages.id}
             value={message}
             name="message"
             placeholder="Send Message..."
             onChange={this.handleChange}
           />
           {/* this */}
-          <button
-            className="btn btn-outline-secondary"
-            {/* I think if you make it type="submit" you won't need the onClick, since it'll trigger onSubmit for the form */}
-            type="button"
-            onClick={this.messageSubmit}
-          >
+          <button className="btn btn-outline-secondary" type="submit">
             Send
           </button>
           <InputEmoji
@@ -144,17 +118,18 @@ class Messages extends Component {
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
+    user: state.user.user,
     channels: state.channels.channels,
-    messages: state.messages.currentChannelMessages
+    messages: state.messages.currentChannelMessages,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    getMessages: ID => dispatch(getMessages(ID)),
-    sendMessages: (ID, userData) => dispatch(sendMessages(ID, userData))
+    getMessages: (ID) => dispatch(getMessages(ID)),
+    sendMessages: (ID, Message) => dispatch(sendMessages(ID, Message)),
   };
 };
 

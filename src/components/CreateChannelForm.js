@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../redux/actions";
 
@@ -69,7 +69,7 @@ class CreateChannel extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user.user,
+    user: state.user.user
   };
 };
 
