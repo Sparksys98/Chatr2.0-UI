@@ -2,25 +2,16 @@ import React, { Component } from "react";
 import { getMessages, sendMessages } from "../redux/actions";
 import { connect } from "react-redux";
 import InputEmoji from "react-input-emoji";
+import ShowMessages from "./ShowMessages";
 class Messages extends Component {
-  state = {
-    message: ""
-  };
   setLiveMessagesInterval() {
     this.props.getMessages(this.props.match.params.ID);
     this.interval = setInterval(() => {
       this.props.getMessages(this.props.match.params.ID);
     }, 3500);
   }
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-  messageSubmit = event => {
-    event.preventDefault();
-    this.props.sendMessages(this.props.match.params.ID, this.state);
-    this.setState({
-      message: ""
-    });
+  messageSubmit = (message) => {
+    this.props.sendMessages(this.props.match.params.ID, { message });
   };
 
   componentDidMount() {
@@ -41,44 +32,13 @@ class Messages extends Component {
 
   render() {
     const channel = this.props.channels.find(
-      channel => channel.id.toString() === this.props.match.params.ID
+      (channel) => channel.id.toString() === this.props.match.params.ID
     );
     // Ideally, you can have a page that isn't a channel, and redirect to it
     // if the channel isn't found.
     const owner = channel ? channel.owner : "";
-
-    // put this JSX into a separate Message component.
-    const messages = this.props.messages.map(message => (
-      <div key={message.id} id="container">
-        <div id="chatWindow">
-          <ul
-            className="list-group list-group-flush"
-            style={{ listStyleType: "none" }}
-          >
-            {this.props.user.username === message.username ? (
-              <li className="text">
-                <div className="chat-bubble-librarian">
-                  {message.username}: {message.message}
-                </div>
-              </li>
-            ) : (
-              <li className="text">
-                <div className="chat-bubble-user">
-                  {message.username}: {message.message}
-                </div>
-              </li>
-            )}
-          </ul>
-        </div>
-      </div>
-    ));
-    const { message } = this.state;
-
-    // you could alternatively have a currentChannel in the reducer state that sets the current
-    // channel when a ChannelNavLink is clicked.
-    // Then you wont' need to do this .find() here.
     const channelImage = this.props.channels.find(
-      channel => channel.id.toString() === this.props.match.params.ID
+      (channel) => channel.id.toString() === this.props.match.params.ID
     );
 
     const Image =
@@ -86,7 +46,7 @@ class Messages extends Component {
         ? channelImage.image_url
         : "https://image.spreadshirtmedia.com/image-server/v1/compositions/T347A2PA2978PT17X144Y34D1016483822FS2321/views/1,width=650,height=650,appearanceId=2,backgroundColor=ffffff.jpg";
     return (
-      <form onSubmit={this.messageSubmit}>
+      <div>
         <div>
           <h2>{owner}</h2>
         </div>
@@ -97,47 +57,30 @@ class Messages extends Component {
           height="100px"
           alt=""
         />
-        <div className="area">{messages}</div>
-        <div className="form-group ">
-          <label htmlFor="message"></label>
-          <input
-            type="text"
-            className="form-control"
-            aria-label="Message"
-            aria-describedby="inputGroup-sizing-default"
-            value={message}
-            name="message"
-            placeholder="Send Message..."
-            onChange={this.handleChange}
-          />
-          {/* this */}
-          <button className="btn btn-outline-secondary" type="submit">
-            Send
-          </button>
-          <InputEmoji
-            value={message}
-            onChange={this.handleChange}
-            onEnter={this.messageSubmit}
-            cleanOnEnter
-            placeholder="Type a message"
-          />
+        <div className="area">
+          <ShowMessages />
         </div>
-      </form>
+        <InputEmoji
+          onEnter={this.messageSubmit}
+          cleanOnEnter
+          placeholder="Type a message"
+        />
+      </div>
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     user: state.user.user,
     channels: state.channels.channels,
-    messages: state.messages.currentChannelMessages
+    messages: state.messages.currentChannelMessages,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    getMessages: ID => dispatch(getMessages(ID)),
-    sendMessages: (ID, Message) => dispatch(sendMessages(ID, Message))
+    getMessages: (ID) => dispatch(getMessages(ID)),
+    sendMessages: (ID, Message) => dispatch(sendMessages(ID, Message)),
   };
 };
 

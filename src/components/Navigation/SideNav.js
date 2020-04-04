@@ -6,17 +6,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleLeft,
   faAngleRight,
-  faPlusCircle
+  faPlusCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Components
+import SearchBar from "../SearchBar";
 import ChannelNavLink from "./ChannelNavLink";
 
 class SideNav extends React.Component {
-  state = { collapsed: false };
+  state = { collapsed: false, query: "" };
+  setQuery = (query) => this.setState({ query });
+  filterChannels = () => {
+    const query = this.state.query.toLowerCase();
+    return this.props.channels.filter((channel) =>
+      channel.name.toLowerCase().includes(query)
+    );
+  };
 
   render() {
-    const channelLinks = this.props.channels.map(channel => (
+    const channelLinks = this.filterChannels().map((channel) => (
       <ChannelNavLink key={channel.name} channel={channel} />
     ));
 
@@ -32,13 +40,19 @@ class SideNav extends React.Component {
               >
                 <Link className="nav-link heading" to="/createChannel">
                   <span
-                    className="nav-link-text mr-2"
+                    className="nav-link-text mr-2 "
                     style={{ fontFamily: "Lilita One" }}
                   >
                     Channels
                   </span>
                   <FontAwesomeIcon icon={faPlusCircle} />
                 </Link>
+                <span
+                  className="nav-link-text mr-2"
+                  style={{ fontFamily: "Lilita One" }}
+                >
+                  <SearchBar onChange={this.setQuery} />
+                </span>
               </li>
               <>{channelLinks}</>
             </>
@@ -56,8 +70,8 @@ class SideNav extends React.Component {
               className="nav-link text-center"
               id="sidenavToggler"
               onClick={() =>
-                this.setState(prevState => ({
-                  collapsed: !prevState.collapsed
+                this.setState((prevState) => ({
+                  collapsed: !prevState.collapsed,
                 }))
               }
             >
@@ -72,9 +86,9 @@ class SideNav extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.user.user,
-  channels: state.channels.channels
+  channels: state.channels.channels,
 });
 
 export default connect(mapStateToProps)(SideNav);
