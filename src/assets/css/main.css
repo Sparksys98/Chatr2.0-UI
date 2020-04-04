@@ -709,37 +709,50 @@ footer.sticky-footer {
 
 .rounded {
   padding-bottom: 10px;
+
+  border-radius: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.rounded2 {
+  text-align: center;
 }
 
 #chatWindow {
   overflow-y: auto;
-  max-width: 900px;
+  max-width: 100%;
   max-height: 900px;
   text-align: right;
   background-color: #f1f1f1;
   overflow-wrap: break-word;
+  background-image: url("https://media.istockphoto.com/vectors/stylish-seamless-pattern-of-simple-grey-geometric-shapes-on-white-vector-id937100284");
 }
 
-.chat-bubble-librarian {
-  font-size: 14px;
+.chat-bubble {
+  font-size: 20px;
   text-align: left;
   margin: 6px;
   position: relative;
+  font-family: cursive;
+
   max-width: 400px;
   max-height: 400px;
   border: 1px solid gray;
-  border-radius: 10px;
+  border-radius: 5px;
+  box-shadow: black 2px 4px 5px;
 }
 
 .chat-bubble-user {
-  font-size: 14px;
+  font-size: 20px;
   margin: 6px;
+  font-family: cursive;
   display: inline-block;
   text-align: left;
   position: relative;
   max-width: 400px;
   max-height: 400px;
   border: 1px solid gray;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: black 2px 4px 5px;
 }

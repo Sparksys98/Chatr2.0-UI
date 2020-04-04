@@ -57,7 +57,7 @@ class Messages extends Component {
           >
             {this.props.user.username === message.username ? (
               <li className="text">
-                <div className="chat-bubble-librarian">
+                <div className="chat-bubble">
                   {message.username}: {message.message}
                 </div>
               </li>
@@ -88,13 +88,13 @@ class Messages extends Component {
     return (
       <form onSubmit={this.messageSubmit}>
         <div>
-          <h2>{owner}</h2>
+          <h2 className="rounded2">{owner}</h2>
         </div>
         <img
           src={Image}
           className="rounded"
-          width="100px"
-          height="100px"
+          width="200px"
+          height="200px"
           alt=""
         />
         <div className="area">{messages}</div>
