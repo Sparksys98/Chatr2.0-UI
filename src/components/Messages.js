@@ -47,7 +47,6 @@ class Messages extends Component {
     // Ideally, you can have a page that isn't a channel, and redirect to it
     // if the channel isn't found.
     const owner = channel ? channel.owner : "";
-    console.log(owner); // remove console logs like this before merging to master.
 
     // put this JSX into a separate Message component.
     /*
@@ -141,7 +140,6 @@ class Messages extends Component {
 }
 const mapStateToProps = state => {
   return {
-    user: state.user.user, // not being used
     channels: state.channels.channels,
     messages: state.messages.currentChannelMessages
   };
