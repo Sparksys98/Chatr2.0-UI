@@ -116,7 +116,7 @@ class Messages extends Component {
             onChange={this.handleChange}
           />
           {/* this */}
-          <button className="btn btn-outline-secondary" type="submit">
+          {/* <button className="btn btn-outline-secondary" type="submit"> */}
 
           <button
             className="btn btn-outline-secondary"
