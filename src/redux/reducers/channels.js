@@ -12,6 +12,8 @@ const reducer = (state = initialState, { type, payload }) => {
         channels: payload
       };
     case ADD_CHANNEL:
+      // this isn't doing anything. either don't dispatch it and remove it,
+      // or make it add the payload to the list of channels
       return {
         ...state
       };

@@ -1,12 +1,5 @@
 import { SET_CURRENT_USER } from "../actions/actionTypes";
 
-/**
- * You can simplify this state (and the way it's being used in all yout components)
- * by having the whole state be the user object:
- *
- * const initialState = null;
- */
-
 const initialState = {
   user: null
 };

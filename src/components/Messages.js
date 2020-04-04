@@ -48,6 +48,12 @@ class Messages extends Component {
     const owner = channel ? channel.owner : "";
 
     // put this JSX into a separate Message component.
+<<<<<<< HEAD
+=======
+    /*
+     * The "No Messages" message should appear if there are no messages, not if one of the messages is empty.
+     */
+>>>>>>> 953095f549bc605e26d0a46c4ab3831f898c8ffb
     const messages = this.props.messages.map(message => (
       <div key={message.id}>
         <div className="speech ">
@@ -105,13 +111,27 @@ class Messages extends Component {
             className="form-control"
             aria-label="Message"
             aria-describedby="inputGroup-sizing-default"
+<<<<<<< HEAD
+=======
+            {/* messages is a list of messages, it doesn't have an id, also you don't need an id for the input tag */}
+            id={messages.id}
+>>>>>>> 953095f549bc605e26d0a46c4ab3831f898c8ffb
             value={message}
             name="message"
             placeholder="Send Message..."
             onChange={this.handleChange}
           />
           {/* this */}
+<<<<<<< HEAD
           <button className="btn btn-outline-secondary" type="submit">
+=======
+          <button
+            className="btn btn-outline-secondary"
+            {/* I think if you make it type="submit" you won't need the onClick, since it'll trigger onSubmit for the form */}
+            type="button"
+            onClick={this.messageSubmit}
+          >
+>>>>>>> 953095f549bc605e26d0a46c4ab3831f898c8ffb
             Send
           </button>
           <InputEmoji
@@ -128,7 +148,6 @@ class Messages extends Component {
 }
 const mapStateToProps = state => {
   return {
-    user: state.user.user,
     channels: state.channels.channels,
     messages: state.messages.currentChannelMessages
   };
