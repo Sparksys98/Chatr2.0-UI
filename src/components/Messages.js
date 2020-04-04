@@ -48,7 +48,7 @@ class Messages extends Component {
     return (
       <div>
         <div>
-          <h2>Owner is: {owner}</h2>
+          <h2>{owner}</h2>
         </div>
         <img
           src={Image}
