@@ -86,10 +86,14 @@ class Messages extends Component {
         <div>
           <h2>Owner is: {owner}</h2>
         </div>
-        <img src={Image} className="rounded" width="100px" height="100px" />
-        <div className="card">
-          <div className="card-body">{messages}</div>
-        </div>
+        <img
+          src={Image}
+          className="rounded"
+          width="100px"
+          height="100px"
+          alt=""
+        />
+        <div className="area">{messages}</div>
         <div className="form-group ">
           <label htmlFor="message"></label>
           <input
