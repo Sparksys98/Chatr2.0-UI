@@ -48,7 +48,6 @@ class Messages extends Component {
     const owner = channel ? channel.owner : "";
 
     // put this JSX into a separate Message component.
-
     const messages = this.props.messages.map(message => (
       <div key={message.id}>
         <div className="speech ">
@@ -106,25 +105,13 @@ class Messages extends Component {
             className="form-control"
             aria-label="Message"
             aria-describedby="inputGroup-sizing-default"
-
-            {/* messages is a list of messages, it doesn't have an id, also you don't need an id for the input tag */}
-            id={messages.id}
-
             value={message}
             name="message"
             placeholder="Send Message..."
             onChange={this.handleChange}
           />
           {/* this */}
-          {/* <button className="btn btn-outline-secondary" type="submit"> */}
-
-          <button
-            className="btn btn-outline-secondary"
-            {/* I think if you make it type="submit" you won't need the onClick, since it'll trigger onSubmit for the form */}
-            type="button"
-            onClick={this.messageSubmit}
-          >
-
+          <button className="btn btn-outline-secondary" type="submit">
             Send
           </button>
           <InputEmoji
@@ -141,6 +128,7 @@ class Messages extends Component {
 }
 const mapStateToProps = state => {
   return {
+    user: state.user.user,
     channels: state.channels.channels,
     messages: state.messages.currentChannelMessages
   };
