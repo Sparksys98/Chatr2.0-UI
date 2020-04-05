@@ -10,7 +10,7 @@ class Messages extends Component {
       this.props.getMessages(this.props.match.params.ID);
     }, 3500);
   }
-  messageSubmit = (message) => {
+  messageSubmit = message => {
     this.props.sendMessages(this.props.match.params.ID, { message });
   };
 
@@ -32,12 +32,11 @@ class Messages extends Component {
 
   render() {
     const channel = this.props.channels.find(
-      (channel) => channel.id.toString() === this.props.match.params.ID
+      channel => channel.id.toString() === this.props.match.params.ID
     );
     // Ideally, you can have a page that isn't a channel, and redirect to it
     // if the channel isn't found.
     const owner = channel ? channel.owner : "";
-<<<<<<< HEAD
 
     // put this JSX into a separate Message component.
     const messages = this.props.messages.map(message => (
@@ -69,10 +68,8 @@ class Messages extends Component {
     // you could alternatively have a currentChannel in the reducer state that sets the current
     // channel when a ChannelNavLink is clicked.
     // Then you wont' need to do this .find() here.
-=======
->>>>>>> fb8a9b561bc5d3552aa8c6e4b01692040f11e0ab
     const channelImage = this.props.channels.find(
-      (channel) => channel.id.toString() === this.props.match.params.ID
+      channel => channel.id.toString() === this.props.match.params.ID
     );
 
     const Image =
@@ -103,18 +100,18 @@ class Messages extends Component {
     );
   }
 }
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     user: state.user.user,
     channels: state.channels.channels,
-    messages: state.messages.currentChannelMessages,
+    messages: state.messages.currentChannelMessages
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    getMessages: (ID) => dispatch(getMessages(ID)),
-    sendMessages: (ID, Message) => dispatch(sendMessages(ID, Message)),
+    getMessages: ID => dispatch(getMessages(ID)),
+    sendMessages: (ID, Message) => dispatch(sendMessages(ID, Message))
   };
 };
 
