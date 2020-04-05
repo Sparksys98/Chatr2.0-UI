@@ -5,17 +5,13 @@ import { Link } from "react-router-dom";
 import SideNav from "./SideNav";
 import AuthButton from "./AuthButton";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-
 const NavBar = () => (
   <nav
     className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top"
     id="mainNav"
   >
     <Link className="navbar-brand" to="/channel">
-      <FontAwesomeIcon icon={faHome} />
-      Chat Online
+      Wazzzap!
     </Link>
     <button
       className="navbar-toggler navbar-toggler-right"

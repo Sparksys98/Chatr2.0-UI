@@ -3,21 +3,19 @@ import { connect } from "react-redux";
 class ShowMessages extends Component {
   render() {
     return this.props.messages.map((message) => (
-      <div className="border" key={message.id}>
-        <div className="speech ">
+      <div key={message.id} id="container">
+        <div id="chatWindow">
           <ul
             className="list-group list-group-flush"
             style={{ listStyleType: "none" }}
           >
             {this.props.user.username === message.username ? (
               <li className="text">
-                <div className="right">
-                  {message.username}: {message.message}
-                </div>
+                <div className="chat-bubble-user">{message.message}</div>
               </li>
             ) : (
               <li className="text">
-                <div className="left">
+                <div className="chat-bubble">
                   {message.username}: {message.message}
                 </div>
               </li>
