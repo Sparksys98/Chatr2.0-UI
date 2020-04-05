@@ -3,27 +3,22 @@ html {
   min-height: 100%;
 }
 .text {
-  color: black;
+  color: white;
   font-size: large;
   font-style: oblique;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   flex-direction: column-reverse;
 }
 .scroll {
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 body {
   overflow-x: hidden;
+  background-image: url(https://free-hd-wallpapers.info/wp-content/uploads/2019/03/message-background-wallpaper-228310.jpg);
 }
 
 body.fixed-nav {
   padding-top: 56px;
-}
-
-.content-wrapper {
-  min-height: calc(100vh - 56px);
-  padding-top: 3rem;
-  padding-left: 3rem;
 }
 
 .scroll-to-top {
@@ -161,7 +156,9 @@ body.fixed-nav {
   max-width: none;
   text-overflow: ellipsis;
 }
-
+.SuperSecretPage {
+  color: white;
+}
 @media (min-width: 992px) {
   #mainNav .navbar-brand {
     font-family: "Permanent Marker", cursive;
@@ -584,7 +581,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   .sidenav-third-level
   > li
   > a:hover {
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 #mainNav.navbar-light
@@ -592,7 +589,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   .navbar-nav
   > .nav-item.dropdown
   > .nav-link:after {
-  color: rgba(101, 29, 107, 0.575);
+  color: rgba(255, 255, 255, 0.575);
 }
 
 @media (min-width: 992px) {
@@ -669,19 +666,11 @@ footer.sticky-footer {
   line-height: 55px;
 }
 
-
 @media (min-width: 992px) {
   footer.sticky-footer {
     width: calc(100%);
   }
 }
-
-
-
-
-
-
-
 
 @media (min-width: 992px) {
   body.sidenav-toggled footer.sticky-footer {
@@ -703,69 +692,96 @@ footer.sticky-footer {
   z-index: -1;
 }
 
-.speech {
-  position: relative;
-  font-family: arial;
-  font-size: 1.1em;
-  overflow-wrap: break-word;
-  background: rgba(52, 58, 64, 0.5);
-  color: #fff;
-  border-radius: 15px;
-  padding: 20px;
-  max-width: 400px;
-  border-style: solid;
-  flex-direction: column-reverse;
-}
-.right:after {
-  content: "";
-  border: 20px solid transparent;
-  border-left-color: rgba(52, 58, 64, 0.5);
-  border-right: 0;
-  position: absolute;
-  right: -20px;
-  top: 50%;
-  margin-top: -20px;
-  border-style: solid;
-  justify-content: flex-end !important;
-}
-.left:after {
-  content: "";
-  border: 20px solid transparent;
-  border-right-color: rgba(52, 58, 64, 0.5);
-  border-left: 0;
-  position: absolute;
-  left: -20px;
-  top: 50%;
-  margin-top: -20px;
-  justify-content: flex-start !important;
-}
-.border {
-  padding: 0.5rem;
-
-  
-  
-  
- 
-}
-.borders {
-  border: 0;
-
-}
-.borders {
-  border: 0;
-}
 .area {
-  height: 470px;
+  width: 100%;
+  height: 570px;
+  margin-left: 0px;
   overflow-y: auto;
+  display: block;
 }
 
 .rounded {
   padding-bottom: 10px;
+
+  border-radius: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.rounded2 {
+  color: white;
+  text-align: center;
 }
 
-/* .right:after {
-  justify-content: flex-end !important;
+#chatWindow {
+  overflow-y: auto;
+  max-width: 100%;
+  max-height: 900px;
+  text-align: right;
+  overflow-wrap: break-word;
+  background: transparent;
 }
-.left:after {
-  justify-content: flex-start !important;
-} */
+
+.chat-bubble {
+  background-color: rgba(53, 53, 53, 0.75);
+  font-size: 21px;
+  text-align: left;
+  margin: 10px;
+  padding: 7px;
+  position: relative;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  max-width: 400px;
+  max-height: 400px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  box-shadow: black 2px 4px 5px;
+}
+
+.chat-bubble-user {
+  background-color: rgba(9, 57, 190, 0.75);
+  font-size: 21px;
+  margin: 10px;
+  padding: 7px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  display: inline-block;
+  text-align: left;
+  position: relative;
+  max-width: 400px;
+  max-height: 400px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 6px;
+  box-shadow: black 2px 4px 5px;
+}
+.center-block {
+  border-radius: 50%;
+  position: relative;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 8px;
+}
+
+.content-wrapper {
+  min-height: calc(100vh - 56px);
+  padding-top: 1rem;
+  padding-left: 0.5rem;
+  background: transparent;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(10, 135, 218, 0.651);
+  height: 40px;
+  border-radius: 3px;
+}

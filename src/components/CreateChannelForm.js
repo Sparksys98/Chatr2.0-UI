@@ -6,13 +6,13 @@ import * as actions from "../redux/actions";
 class CreateChannel extends Component {
   state = {
     name: "",
-    image_url: ""
+    image_url: "",
   };
 
-  handleChange = event =>
+  handleChange = (event) =>
     this.setState({ [event.target.name]: event.target.value });
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     this.props.createChannel(this.state);
   };
@@ -36,7 +36,7 @@ class CreateChannel extends Component {
                       id="name"
                       value={name}
                       name="name"
-                      placeholder="Channel Name"
+                      placeholder="Type Channel Name..."
                       onChange={this.handleChange}
                     />
                   </div>
@@ -67,15 +67,15 @@ class CreateChannel extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     user: state.user.user,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    createChannel: userData => dispatch(actions.createChannel(userData))
+    createChannel: (userData) => dispatch(actions.createChannel(userData)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(CreateChannel);

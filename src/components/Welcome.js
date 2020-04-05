@@ -11,7 +11,7 @@ const Welcome = ({ user }) => {
       >
         <h1 className="mb-1">WELCOME TO CHATR</h1>
         <h3 className="mb-5">
-          <em>You're gonna need to login to see the messages</em>
+          <em>You gonna need to login to see the messages</em>
         </h3>
         <Link to="/login" className="btn btn-primary btn-lg">
           Login

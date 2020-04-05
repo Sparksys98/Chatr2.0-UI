@@ -46,15 +46,15 @@ class Messages extends Component {
         ? channelImage.image_url
         : "https://image.spreadshirtmedia.com/image-server/v1/compositions/T347A2PA2978PT17X144Y34D1016483822FS2321/views/1,width=650,height=650,appearanceId=2,backgroundColor=ffffff.jpg";
     return (
-      <div>
+      <div className="bg">
         <div>
-          <h2>Owner is: {owner}</h2>
+          <h2 className="rounded2">Channel Owner: {owner}</h2>
         </div>
         <img
           src={Image}
-          className="rounded"
-          width="100px"
-          height="100px"
+          className="center-block"
+          width="165px"
+          height="165px"
           alt=""
         />
         <div className="area">
